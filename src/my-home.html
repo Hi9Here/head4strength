@@ -1,0 +1,152 @@
+<!doctype html>
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../bower_components/paper-material/paper-material.html">
+<link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="my-home">
+    <template>
+    <style include="shared-styles">
+      :host {
+      display: block;
+    }
+    .hero {
+      background: url(../images/H4S-Hero.png) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      width: 100%;
+      @apply(--layout-horizontal);
+      @apply(--layout-center);
+      @apply(--layout-wrap);
+      @apply(--layout-center-justified);
+    }
+    .hero#desktop {
+      height: 800px;
+    }
+    .hero#mobile {
+      height: 600px;
+    }
+    .tagline {
+
+    }
+    .email.mobbox{
+      height: 25%;
+      margin-top: 0;
+    }
+    .email {
+      @apply(--layout-center-justified);
+    }
+    .box {
+      background-color: #ea5f00;
+      opacity: 0.85;
+      border-radius: 25px;
+    }
+    .deskbox { 
+      margin: 20px;
+      padding: 10px 30px 10px 30px;
+      height: 50%;
+      width: 30%;
+
+    }
+    .mobbox { 
+      margin: 10px;
+      padding: 10px 20px 10px 20px;
+      height: 40%;
+      width: 80%;
+    }
+    a paper-button,
+    a:active paper-button,
+    a:visited paper-button {
+      color: #000;
+      background-color: #fff;
+      margin: 10px;
+      width: 50%;
+    }
+    a {
+      text-decoration: none;
+    }
+    h3 {
+      font-weight: 400;
+      color: #fff;
+      text-align: center;
+    }
+    .deskbox h3 {
+      font-size: 30px;
+    }
+    h4 {
+      font-weight: 300;
+      line-height: 1.5;
+      color: #fff;
+    }
+    .deskbox h4 {
+      font-size: 26px;
+    }
+    #button {
+      @apply(--layout-horizontal);
+      @apply(--layout-center);
+      @apply(--layout-center-justified);
+    }
+
+    </style>
+
+  <iron-media-query query="(min-width: 600px)" query-matches="{{isDesktop}}"></iron-media-query>
+  <iron-media-query query="(max-width: 600px)" query-matches="{{isMobile}}"></iron-media-query>
+
+  <!-- Desktop Version -->
+  <template is="dom-if" if="{{isDesktop}}">
+
+    <div class="hero" id="desktop">
+      <div class="tagline box deskbox">
+          <h3>Mission</h3>
+          <h4>1: Helping the Fitness Industry support Young & Vulnerable people find Physical and Mental Well being</h4>
+          <h4>2: Use Nutrition and Exercise to alleviate Mental Health issues for everyone</h4>
+      </div>
+      <div class="email box deskbox">
+          <h3>Discover More About Events, News and Early Access to Our Services</h3>
+          <a href="http://eepurl.com/cQK5u9" tabindex="-1">
+          <span id="button">
+            <paper-button raised>Email Sign up</paper-button>
+          </span>
+          </a>
+      </div>
+    </div>
+
+  </template>
+
+  <!-- Mobile Version -->
+  <template is="dom-if" if="{{isMobile}}">
+
+    <div class="hero" id="mobile">
+       <div class="tagline box mobbox">
+          <h3>Mission</h3>
+          <h4>1: Helping the Fitness Industry support Young & Vulnerable people find Physical and Mental Well being</h4>
+          <h4>2: Use Nutrition and Exercise to alleviate Mental Health issues for everyone</h4>
+      </div>
+      <div class="email box mobbox">
+          <h3>Discover More. Sign up Below</h3>
+          <a href="http://eepurl.com/cQK5u9" tabindex="-1">
+          <span id="button">
+            <paper-button raised>Email Signup</paper-button>
+          </span>
+          </a>
+      </div>
+    </div>
+    
+  </template>
+
+   </template>
+
+  <script>
+    class MyHome extends Polymer.Element {
+      static get is() { return 'my-home'; }
+    }
+
+    window.customElements.define(MyHome.is, MyHome);
+  </script>
+</dom-module>
