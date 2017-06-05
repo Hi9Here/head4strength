@@ -2,9 +2,10 @@
   "entrypoint": "index.html",
   "shell": "src/my-app.html",
   "fragments": [
-    "src/my-view1.html",
-    "src/my-view2.html",
-    "src/my-view3.html",
+    "src/my-home.html",
+    "src/my-aboutus.html",
+    "src/my-events.html",
+    "src/my-contactus.html",
     "src/my-view404.html"
   ],
   "sources": [
